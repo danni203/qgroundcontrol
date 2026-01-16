@@ -54,7 +54,21 @@ SettingsPage {
             indexModel: false
             visible:    _appSettings.followTarget.visible
         }
+        FactCheckBoxSlider {
+                    Layout.fillWidth:   true
+                    text:               qsTr("Show EFI Indicator")
+                    // This requires 'showEFIIndicator' to be defined in AppSettings.cc
+                    fact:               _appSettings.showEFIIndicator
+                    visible:            _appSettings.showEFIIndicator ? _appSettings.showEFIIndicator.visible : false
+                }
 
+        FactCheckBoxSlider {
+                    Layout.fillWidth:   true
+                    text:               qsTr("Show Flap Indicator")
+                    // This requires 'showFlapIndicator' to be defined in AppSettings.cc
+                    fact:               _appSettings.showFlapIndicator
+                    visible:            _appSettings.showFlapIndicator.visible
+                }
         FactCheckBoxSlider {
             Layout.fillWidth: true
             text:           qsTr("Mute all audio output")

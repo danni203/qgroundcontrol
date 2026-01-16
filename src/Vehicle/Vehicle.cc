@@ -137,6 +137,7 @@ Vehicle::Vehicle(LinkInterface*             link,
     connect(MultiVehicleManager::instance(), &MultiVehicleManager::parameterReadyVehicleAvailableChanged, this, &Vehicle::_vehicleParamLoaded);
 
     connect(this, &Vehicle::remoteControlRSSIChanged,   this, &Vehicle::_remoteControlRSSIChanged);
+    connect(this, &Vehicle::rcFlapStatus,   this, &Vehicle::_rcFlapStatus);
 
     _commonInit(link);
 
@@ -1469,8 +1470,17 @@ void Vehicle::_handleRCChannels(mavlink_message_t& message)
 
     emit remoteControlRSSIChanged(channels.rssi);
     emit rcChannelsChanged(channels.chancount, pwmValues);
+    emit rcFlapStatus(channels.chancount, pwmValues);
 }
+void Vehicle::_rcFlapStatus(int channelCount, int pwmValues[QGCMAVLink::maxRcChannels])
+{
+    if (channelCount >=5)
+    {
+        _rcFlap = pwmValues[4];
+        emit rcFlapChanged(_rcFlap);
+    }
 
+}
 bool Vehicle::sendMessageOnLinkThreadSafe(LinkInterface* link, mavlink_message_t message)
 {
     if (!link->isConnected()) {

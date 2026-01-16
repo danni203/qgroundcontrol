@@ -3,6 +3,7 @@
     "fileType":  "FactMetaData",
     "QGC.MetaData.Facts":
 [
+
 {
     "name":             "offlineEditingFirmwareClass",
     "shortDesc": "Offline editing firmware class",
@@ -268,6 +269,20 @@
     "shortDesc": "AirLink Password",
     "type": "string",
     "default": ""
+},
+{
+    "name":             "showEFIIndicator",
+    "shortDescription": "Show EFI Indicator",
+    "longDescription":  "Show the EFI status indicator in the toolbar.",
+    "type":             "bool",
+    "defaultValue":     false
+},
+{
+    "name":             "showFlapIndicator",
+    "shortDescription": "Show Flap Indicator",
+    "longDescription":  "Show the Flap status indicator in the toolbar.",
+    "type":             "bool",
+    "defaultValue":     false
 }
 ]
 }

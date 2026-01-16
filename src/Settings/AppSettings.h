@@ -62,6 +62,10 @@ public:
     DEFINE_SETTINGFACT(loginAirLink)
     DEFINE_SETTINGFACT(passAirLink)
 
+    // Add  new definitions here so QML can access them
+    DEFINE_SETTINGFACT(showEFIIndicator)
+    DEFINE_SETTINGFACT(showFlapIndicator)
+
     Q_PROPERTY(QString missionSavePath          READ missionSavePath            NOTIFY savePathsChanged)
     Q_PROPERTY(QString parameterSavePath        READ parameterSavePath          NOTIFY savePathsChanged)
     Q_PROPERTY(QString telemetrySavePath        READ telemetrySavePath          NOTIFY savePathsChanged)
@@ -112,6 +116,8 @@ public:
     static constexpr const char* logFileExtension =         "ulg";
     static constexpr const char* tilesetFileExtension =     "qgctiledb";
     static constexpr const char* settingsFileExtension =    "settings";
+    //static constexpr const char* showEFIIndicatorName =  "showEFIIndicator"; // add new selection
+    //static constexpr const char* showFlapIndicatorName = "showFlapIndicator"; //add new selection
 
     // Child directories of savePath for specific file types
     static constexpr const char* parameterDirectory =       QT_TRANSLATE_NOOP("AppSettings", "Parameters");
@@ -145,6 +151,6 @@ private:
         const char*         languageName;
     } LanguageInfo_t;
     static LanguageInfo_t _rgLanguageInfo[];
-    
+
     friend class QGCApplication;
 };

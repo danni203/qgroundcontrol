@@ -239,6 +239,8 @@ qt_add_qml_module(QGroundControlControlsModule
         RemoteIDIndicatorPage.qml
         SignalStrength.qml
         VehicleMessageList.qml
+        EFIIndicator.qml
+        FlapIndicator.qml
 
         # src/QtLocationPlugin/QMLControl/
         OfflineMapEditor.qml
